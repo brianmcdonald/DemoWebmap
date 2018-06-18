@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/180528_Outline_Rohingya_Refugee_Camp_A1_0.js"></script>
+        <script src="data/Unstable_1.js"></script>
+        <script src="data/Relatively_Unstable_2.js"></script>
+        <script src="data/Nearly_Unstable_3.js"></script>
+        <script src="data/Critically_Unstable_4.js"></script>
+        <script src="data/Camp14_5.js"></script>
+        <script src="data/Camp15_6.js"></script>
+        <script src="data/Camp16_7.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[20.910952831505888,91.99630196515174],[21.23052745025978,92.40280658053435]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        L.control.locate().addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_180528_Outline_Rohingya_Refugee_Camp_A1_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['New_Camp_N'] !== null ? Autolinker.link(String(feature.properties['New_Camp_N'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Upazila'] !== null ? Autolinker.link(String(feature.properties['Upazila'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Settlement'] !== null ? Autolinker.link(String(feature.properties['Settlement'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Union'] !== null ? Autolinker.link(String(feature.properties['Union'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name_Alias'] !== null ? Autolinker.link(String(feature.properties['Name_Alias'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SSID'] !== null ? Autolinker.link(String(feature.properties['SSID'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_180528_Outline_Rohingya_Refugee_Camp_A1_0_0() {
+            return {
+                pane: 'pane_180528_Outline_Rohingya_Refugee_Camp_A1_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(245,76,79,0.0)',
+            }
+        }
+        map.createPane('pane_180528_Outline_Rohingya_Refugee_Camp_A1_0');
+        map.getPane('pane_180528_Outline_Rohingya_Refugee_Camp_A1_0').style.zIndex = 400;
+        map.getPane('pane_180528_Outline_Rohingya_Refugee_Camp_A1_0').style['mix-blend-mode'] = 'normal';
+        var layer_180528_Outline_Rohingya_Refugee_Camp_A1_0 = new L.geoJson(json_180528_Outline_Rohingya_Refugee_Camp_A1_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_180528_Outline_Rohingya_Refugee_Camp_A1_0',
+            onEachFeature: pop_180528_Outline_Rohingya_Refugee_Camp_A1_0,
+            style: style_180528_Outline_Rohingya_Refugee_Camp_A1_0_0,
+        });
+        bounds_group.addLayer(layer_180528_Outline_Rohingya_Refugee_Camp_A1_0);
+        map.addLayer(layer_180528_Outline_Rohingya_Refugee_Camp_A1_0);
+        function pop_Unstable_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? Autolinker.link(String(feature.properties['gridcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? Autolinker.link(String(feature.properties['Shape_Area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Unstable_1_0() {
+            return {
+                pane: 'pane_Unstable_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,149,115,1.0)',
+            }
+        }
+        map.createPane('pane_Unstable_1');
+        map.getPane('pane_Unstable_1').style.zIndex = 401;
+        map.getPane('pane_Unstable_1').style['mix-blend-mode'] = 'normal';
+        var layer_Unstable_1 = new L.geoJson(json_Unstable_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Unstable_1',
+            onEachFeature: pop_Unstable_1,
+            style: style_Unstable_1_0,
+        });
+        bounds_group.addLayer(layer_Unstable_1);
+        map.addLayer(layer_Unstable_1);
+        function pop_Relatively_Unstable_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? Autolinker.link(String(feature.properties['gridcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? Autolinker.link(String(feature.properties['Shape_Area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Relatively_Unstable_2_0() {
+            return {
+                pane: 'pane_Relatively_Unstable_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(134,249,39,1.0)',
+            }
+        }
+        map.createPane('pane_Relatively_Unstable_2');
+        map.getPane('pane_Relatively_Unstable_2').style.zIndex = 402;
+        map.getPane('pane_Relatively_Unstable_2').style['mix-blend-mode'] = 'normal';
+        var layer_Relatively_Unstable_2 = new L.geoJson(json_Relatively_Unstable_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Relatively_Unstable_2',
+            onEachFeature: pop_Relatively_Unstable_2,
+            style: style_Relatively_Unstable_2_0,
+        });
+        bounds_group.addLayer(layer_Relatively_Unstable_2);
+        function pop_Nearly_Unstable_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? Autolinker.link(String(feature.properties['gridcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? Autolinker.link(String(feature.properties['Shape_Area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Nearly_Unstable_3_0() {
+            return {
+                pane: 'pane_Nearly_Unstable_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,63,6,1.0)',
+            }
+        }
+        map.createPane('pane_Nearly_Unstable_3');
+        map.getPane('pane_Nearly_Unstable_3').style.zIndex = 403;
+        map.getPane('pane_Nearly_Unstable_3').style['mix-blend-mode'] = 'normal';
+        var layer_Nearly_Unstable_3 = new L.geoJson(json_Nearly_Unstable_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Nearly_Unstable_3',
+            onEachFeature: pop_Nearly_Unstable_3,
+            style: style_Nearly_Unstable_3_0,
+        });
+        bounds_group.addLayer(layer_Nearly_Unstable_3);
+        function pop_Critically_Unstable_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['gridcode'] !== null ? Autolinker.link(String(feature.properties['gridcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? Autolinker.link(String(feature.properties['Shape_Area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Type'] !== null ? Autolinker.link(String(feature.properties['Type'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Critically_Unstable_4_0() {
+            return {
+                pane: 'pane_Critically_Unstable_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,137,110,1.0)',
+            }
+        }
+        map.createPane('pane_Critically_Unstable_4');
+        map.getPane('pane_Critically_Unstable_4').style.zIndex = 404;
+        map.getPane('pane_Critically_Unstable_4').style['mix-blend-mode'] = 'normal';
+        var layer_Critically_Unstable_4 = new L.geoJson(json_Critically_Unstable_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Critically_Unstable_4',
+            onEachFeature: pop_Critically_Unstable_4,
+            style: style_Critically_Unstable_4_0,
+        });
+        bounds_group.addLayer(layer_Critically_Unstable_4);
+        function pop_Camp14_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Layer'] !== null ? Autolinker.link(String(feature.properties['Layer'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SubClasses'] !== null ? Autolinker.link(String(feature.properties['SubClasses'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ExtendedEn'] !== null ? Autolinker.link(String(feature.properties['ExtendedEn'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Linetype'] !== null ? Autolinker.link(String(feature.properties['Linetype'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['EntityHand'] !== null ? Autolinker.link(String(feature.properties['EntityHand'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Text'] !== null ? Autolinker.link(String(feature.properties['Text'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Camp14_5_0() {
+            return {
+                pane: 'pane_Camp14_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(241,232,172,1.0)',
+            }
+        }
+        map.createPane('pane_Camp14_5');
+        map.getPane('pane_Camp14_5').style.zIndex = 405;
+        map.getPane('pane_Camp14_5').style['mix-blend-mode'] = 'normal';
+        var layer_Camp14_5 = new L.geoJson(json_Camp14_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Camp14_5',
+            onEachFeature: pop_Camp14_5,
+            style: style_Camp14_5_0,
+        });
+        bounds_group.addLayer(layer_Camp14_5);
+        function pop_Camp15_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Layer'] !== null ? Autolinker.link(String(feature.properties['Layer'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SubClasses'] !== null ? Autolinker.link(String(feature.properties['SubClasses'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ExtendedEn'] !== null ? Autolinker.link(String(feature.properties['ExtendedEn'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Linetype'] !== null ? Autolinker.link(String(feature.properties['Linetype'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['EntityHand'] !== null ? Autolinker.link(String(feature.properties['EntityHand'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Text'] !== null ? Autolinker.link(String(feature.properties['Text'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Camp15_6_0() {
+            return {
+                pane: 'pane_Camp15_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(106,185,42,1.0)',
+            }
+        }
+        map.createPane('pane_Camp15_6');
+        map.getPane('pane_Camp15_6').style.zIndex = 406;
+        map.getPane('pane_Camp15_6').style['mix-blend-mode'] = 'normal';
+        var layer_Camp15_6 = new L.geoJson(json_Camp15_6, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Camp15_6',
+            onEachFeature: pop_Camp15_6,
+            style: style_Camp15_6_0,
+        });
+        bounds_group.addLayer(layer_Camp15_6);
+        map.addLayer(layer_Camp15_6);
+        function pop_Camp16_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Layer'] !== null ? Autolinker.link(String(feature.properties['Layer'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SubClasses'] !== null ? Autolinker.link(String(feature.properties['SubClasses'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ExtendedEn'] !== null ? Autolinker.link(String(feature.properties['ExtendedEn'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Linetype'] !== null ? Autolinker.link(String(feature.properties['Linetype'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['EntityHand'] !== null ? Autolinker.link(String(feature.properties['EntityHand'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Text'] !== null ? Autolinker.link(String(feature.properties['Text'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Camp16_7_0() {
+            return {
+                pane: 'pane_Camp16_7',
+                opacity: 1,
+                color: 'rgba(148,238,153,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Camp16_7');
+        map.getPane('pane_Camp16_7').style.zIndex = 407;
+        map.getPane('pane_Camp16_7').style['mix-blend-mode'] = 'normal';
+        var layer_Camp16_7 = new L.geoJson(json_Camp16_7, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Camp16_7',
+            onEachFeature: pop_Camp16_7,
+            style: style_Camp16_7_0,
+        });
+        bounds_group.addLayer(layer_Camp16_7);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Camp16_7.png" /> Camp 16': layer_Camp16_7,'<img src="legend/Camp15_6.png" /> Camp 15': layer_Camp15_6,'<img src="legend/Camp14_5.png" /> Camp 14': layer_Camp14_5,'<img src="legend/Critically_Unstable_4.png" /> Critically_Unstable': layer_Critically_Unstable_4,'<img src="legend/Nearly_Unstable_3.png" /> Nearly_Unstable': layer_Nearly_Unstable_3,'<img src="legend/Relatively_Unstable_2.png" /> Relatively_Unstable': layer_Relatively_Unstable_2,'<img src="legend/Unstable_1.png" /> Unstable': layer_Unstable_1,'<img src="legend/180528_Outline_Rohingya_Refugee_Camp_A1_0.png" /> 180528_Outline_Rohingya_Refugee_Camp_A1': layer_180528_Outline_Rohingya_Refugee_Camp_A1_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_180528_Outline_Rohingya_Refugee_Camp_A1_0.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['New_Camp_N'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['New_Camp_N']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_180528_Outline_Rohingya_Refugee_Camp_A1_0'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_180528OutlineRohingyaRefugeeCampA1_0]);
+        map.on("zoomend", function(){
+            resetLabels([layer_180528OutlineRohingyaRefugeeCampA1_0]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_180528OutlineRohingyaRefugeeCampA1_0]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_180528OutlineRohingyaRefugeeCampA1_0]);
+        });
+        </script>
+    </body>
+</html>
